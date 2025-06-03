@@ -1,4 +1,6 @@
 /* eslint-disable quotes */
+require("dotenv").config();
+
 const Hapi = require("@hapi/hapi");
 const routes = require("./routes.js");
 const process = require("process");
@@ -16,6 +18,7 @@ const init = async () => {
 
   server.route(routes);
   server.start();
+  console.log(`host : ${process.env.STATUS} `);
 
   console.log(`Server berjalan pada ${server.info.uri}`);
 };
